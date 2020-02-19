@@ -8,21 +8,22 @@ package resource;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.ws.rs.*;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import projection.MetaDataProjection;
 import service.MetaDataService;
 
-/** REST resource for managing meta data. */
+/** REST resource for managing manufactor data. */
 @Stateless
-@Path("metaData")
+@Path("manufactor")
 @Produces(MediaType.APPLICATION_JSON)
-public class MetaDataResource {
+public class ManufactorResource {
   @Inject private MetaDataService metaDataService_;
 
   @GET
-  @Path("/{category}")
-  public List<MetaDataProjection> getMetaDataList(@PathParam("category") String category) {
-    return metaDataService_.getMetaData(category);
+  public List<MetaDataProjection> getMetaDataList() {
+    return metaDataService_.getMetaData(MetaDataService.MANUFACTOR);
   }
 }

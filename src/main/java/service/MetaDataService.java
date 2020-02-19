@@ -17,7 +17,12 @@ import repository.MetaDataRepository;
  * <p>Class for manipulating MetaData resources on the server
  */
 public class MetaDataService {
-  @Inject private MetaDataRepository metaDataRepository_;
+
+  public static final String EQUIPMENT_TYPE = "equipmentType";
+  public static final String MANUFACTOR = "manufactor";
+
+  @Inject
+  private MetaDataRepository metaDataRepository_;
 
   public List<MetaDataProjection> getMetaData(String category) {
     return MetaDataMapper.asProjections(metaDataRepository_.getMetaData(category));
